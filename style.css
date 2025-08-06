@@ -17,3 +17,72 @@ body {
     height: 100vh;
     padding: 1rem;
 }
+.container{
+    margin: 0 auto;
+    max-width: 1600px;
+}
+.head-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+.button-add-teacher{
+    padding: 12px 30px;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 16px;
+}
+.button-add-teacher:hover {
+    background-color: #384c6c;
+}
+.admin-h1{
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+.crm-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 30px 20px;
+}
+.card{
+    width: 350px;
+    background-color: var(--secondary-color);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #384c6c10;
+}
+.card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card h6{
+    font-size: 24px;
+    padding: 10px 0;
+    font-weight: 600;
+    color: #384c6c;
+}
+.card-body span{
+    font-size: 40px;
+    color: var(--primary-color);
+    padding: 10px 0;
+    font-weight: 700;
+}
+.card-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+.card-footer p{
+    font-size: 15px;
+    color: #6b7280;
+    font-weight: 300;
+}
