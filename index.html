@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <div class="login-wrapper">
+        <h2>CRM Tizimiga Kirish</h2>
+        <p class="subtitle">Admin yoki O'qituvchiligingizni tanlang</p>
+    
+        <div class="role-toggle">
+          <button class="role-btn active" id="adminBtn" type="button">Admin</button>
+          <button class="role-btn" id="teacherBtn" type="button">O'qituvchi</button>
+        </div>
+    
+        <form id="loginForm">
+          <label for="username">Foydalanuvchi nomi</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Admin username"
+            required
+          />
+    
+          <label for="password">Parol</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Parol"
+            required
+          />
+    
+          <button type="submit" class="submit-btn" id="submitBtn">Admin sifatida kirish</button>
+        </form>
+      </div>
+    
+
+    <script src="./index.js"></script>
+</body>
+</html>
