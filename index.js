@@ -72,6 +72,7 @@ const oquvchilarData = [
   const oquvchilarBody = document.getElementById("oquvchilar-body");
   const oqituvchilarBody = document.getElementById("oqituvchilar-body");
   const addBtn = document.getElementById("addBtn");
+  const addBtn2 = document.getElementById("addBtn2");
   const modal = document.getElementById("modal");
   const form = document.getElementById("studentForm");
   const cancelBtn = modal.querySelector(".cancel-btn");
@@ -92,6 +93,7 @@ const oquvchilarData = [
         tolovlarDiv.style.display = "none";
         oqituvchilarDiv.style.display = "none";
         addBtn.style.display = "inline-block";
+        addBtn2.style.display = "none";
         tabletitle[0].textContent = "Barcha o'quvchilar";
         renderTable();
       } else if (currentTab === "tolovlar") {
@@ -99,12 +101,14 @@ const oquvchilarData = [
         tolovlarDiv.style.display = "flex";
         oqituvchilarDiv.style.display = "none";
         addBtn.style.display = "none";
+        addBtn2.style.display = "none";
         tabletitle[0].textContent = "To'lovlar ro'yxati";
       } else if (currentTab === "oqituvchilar") {
         oquvchilarTable.style.display = "none";
         tolovlarDiv.style.display = "none";
         oqituvchilarDiv.style.display = "table";
         addBtn.style.display = "none";
+        addBtn2.style.display = "inline-block";
         tabletitle[0].textContent = "O'qituvchilar ro'yxati";
         renderTable2();
       }

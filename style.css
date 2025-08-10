@@ -40,7 +40,9 @@ body {
     font-weight: 400;
     font-size: 16px;
 }
-
+#addBtn2{
+    display: none;
+}
 .button-add-teacher:hover {
     background-color: #384c6c;
 }
@@ -192,7 +194,7 @@ thead{
 #modal .modal-content {
     background: white;
     padding: 30px;
-    width: 450px;
+    width: 400px;
     border-radius: 5px;
 }
 
@@ -220,7 +222,7 @@ thead{
 #modal .modal-actions {
     display: flex;
     justify-content: space-between;
-    margin-top: 15px;
+    margin: 15px;
     text-align: right;
 }
 #modal .modal-actions h3{
