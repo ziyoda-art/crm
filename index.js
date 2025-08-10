@@ -33,19 +33,50 @@ const oquvchilarData = [
     },
   ];
 
+  const oqituvchilarData = [
+    {
+      id: 1,
+      ismFamiliya: "Kholmatov Amriddin",
+      telefon: "+998 90 123 45 67",
+      mutaxassislik: "Foundation",
+      ishBoshlangan: "01.01.01",
+      oylikMaosh: "2.000.000",
+    },
+    {
+      id: 2,
+      ismFamiliya: "Oripov Ubaydullo",
+      telefon: "+998 90 123 45 67",
+      mutaxassislik: "cyber xavfsizlik",
+      ishBoshlangan: "01.01.01",
+      oylikMaosh: "2.000.000",
+    },
+    {
+      id: 3,
+      ismFamiliya: "Isoqov Ogabek ",
+      telefon: "+998 90 123 45 67",
+      mutaxassislik: "Front-end",
+      ishBoshlangan: "01.01.01",
+      oylikMaosh: "2.000.000",
+    },
+  ];
+
   let currentTab = "oquvchilar";
   let students = [...oquvchilarData];
+  let teachers = [...oqituvchilarData];
+
 
   const tabs = document.querySelectorAll(".tab-btn");
   const oquvchilarTable = document.getElementById("oquvchilar-table");
   const tolovlarDiv = document.getElementById("tolovlar");
   const oqituvchilarDiv = document.getElementById("oqituvchilar");
   const oquvchilarBody = document.getElementById("oquvchilar-body");
+  const oqituvchilarBody = document.getElementById("oqituvchilar-body");
   const addBtn = document.getElementById("addBtn");
   const modal = document.getElementById("modal");
   const form = document.getElementById("studentForm");
   const cancelBtn = modal.querySelector(".cancel-btn");
   const cancelbutton = modal.querySelector(".cancel-button");
+  const tabletitle = document.getElementsByClassName("table-title");
 
   // Tablarni almashtirish
   tabs.forEach((tab) => {
@@ -61,17 +92,21 @@ const oquvchilarData = [
         tolovlarDiv.style.display = "none";
         oqituvchilarDiv.style.display = "none";
         addBtn.style.display = "inline-block";
+        tabletitle[0].textContent = "Barcha o'quvchilar";
         renderTable();
       } else if (currentTab === "tolovlar") {
         oquvchilarTable.style.display = "none";
-        tolovlarDiv.style.display = "block";
+        tolovlarDiv.style.display = "flex";
         oqituvchilarDiv.style.display = "none";
         addBtn.style.display = "none";
+        tabletitle[0].textContent = "To'lovlar ro'yxati";
       } else if (currentTab === "oqituvchilar") {
         oquvchilarTable.style.display = "none";
         tolovlarDiv.style.display = "none";
-        oqituvchilarDiv.style.display = "block";
+        oqituvchilarDiv.style.display = "table";
         addBtn.style.display = "none";
+        tabletitle[0].textContent = "O'qituvchilar ro'yxati";
+        renderTable2();
       }
     });
   });
@@ -100,8 +135,8 @@ const oquvchilarData = [
         <td>${student.oqituvchi}</td>
         <td>${student.royxatgaOlingan}</td>
         <td class="actions">
-          <button class="edit-btn" data-id="${student.id}">Tahrirlash</button>
-          <button class="delete-btn" data-id="${student.id}">O'chirish</button>
+          <button class="edit-btn" data-id="${student.id}"><i class="fa-solid fa-pen-to-square"></i> </button>
+          <button class="delete-btn" data-id="${student.id}"><i class="fa-solid fa-trash"></i></button>
         </td>
       `;
 
@@ -130,6 +165,61 @@ const oquvchilarData = [
   }
 
   renderTable();
+
+  function renderTable2() {
+    oqituvchilarBody.innerHTML = "";
+    if (teachers.length === 0) {
+      const tr = document.createElement("tr");
+      const td = document.createElement("td");
+      td.colSpan = 6;
+      td.textContent = "Ma'lumot topilmadi";
+      td.style.textAlign = "center";
+      tr.appendChild(td);
+      oqituvchilarBody.appendChild(tr);
+      return;
+    }
+
+    teachers.forEach((teachers) => {
+      const tr = document.createElement("tr");
+
+      tr.innerHTML = `
+        <td>${teachers.id}</td>
+        <td>${teachers.ismFamiliya}</td>
+        <td>${teachers.telefon}</td>
+        <td>${teachers.mutaxassislik}</td>
+        <td>${teachers.ishBoshlangan}</td>
+        <td>${teachers.oylikMaosh}</td>
+        <td class="actions">
+          <button class="edit-btn" data-id="${teachers.id}"><i class="fa-solid fa-pen-to-square"></i></button>
+          <button class="delete-btn" data-id="${teachers.id}"><i class="fa-solid fa-trash"></i></button>
+        </td>
+      `;
+
+      oqituvchilarBody.appendChild(tr);
+    });
+
+    // O'chirish tugmalarini ishlatish
+    document.querySelectorAll(".delete-btn").forEach((btn) => {
+      btn.onclick = () => {
+        const id = Number(btn.getAttribute("data-id"));
+        if (confirm("Haqiqatan ham o'chirmoqchimisiz?")) {
+          teachers = teachers.filter((s) => s.id !== id);
+          renderTable();
+        }
+      };
+    });
+
+    // Tahrirlash tugmasi (hozir alert ko'rsatadi)
+    document.querySelectorAll(".edit-btn").forEach((btn) => {
+      btn.onclick = () => {
+        const id = Number(btn.getAttribute("data-id"));
+        const teachers = teachers.find((s) => s.id === id);
+        alert("Tahrirlash: " + teachers.ismFamiliya + " (Edit funksiyasi hozircha yo'q)");
+      };
+    });
+  }
+
+  renderTable2();
 
   // Modalni ochish
   addBtn.onclick = () => {
