@@ -374,5 +374,11 @@ datePicker.addEventListener("change", (e) => {
   loadAttendance(e.target.value);
 });
 
+// Dark mode toggle
+const darkModeToggle = document.getElementById("darkModeToggle");
+darkModeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+});
+
 // ⏱ Boshlang‘ich yuklash
 loadAttendance(formattedToday);

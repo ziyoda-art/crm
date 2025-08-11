@@ -6,12 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yagona IT CRM</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style-navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
         integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+    <nav class="navbar">
+        <div class="navbar-center">
+            <div class="search-container">
+                <button class="icon-btn" title="Search" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search..." />
+            </div>
+            <button class="icon-btn" title="YouTube">
+                <i class="fab fa-youtube"></i>
+            </button>
+            <button class="icon-btn" title="Toggle Dark Mode" id="darkModeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <!-- <button class="icon-btn" title="Apps">
+                <i class="fas fa-th"></i>
+            </button> -->
+        </div>
+        <div class="navbar-left">
+            <button class="btn-blaze">
+                Avgust <span class="badge">11-kun</span>
+            </button>
+        </div>
+        <div class="navbar-right">
+            <div class="user-profile">
+                <i class="fa-solid fa-circle-user"></i>
+                <div class="user-info">
+                    <span class="user-name">T. Ziyodabonu</span>
+                    <span class="user-role">Admin</span>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <div class="container">
 
@@ -149,10 +183,11 @@
                                     <td>Dilnoza Tosheva</td>
                                     <td><span class="badge success">To'langan</span></td>
                                     <td>2024-01-15</td>
-                                    <td>
-                                        <button class="action-btn edit"><i
-                                                class="fa-solid fa-pen-to-square"></i></button>
-                                        <button class="action-btn delete"><i class="fa-solid fa-trash"></i></button>
+                                    <td class="actions">
+                                        <button class="edit-btn" data-id="${student.id}"><i
+                                                class="fa-solid fa-pen-to-square"></i> </button>
+                                        <button class="delete-btn" data-id="${student.id}"><i
+                                                class="fa-solid fa-trash"></i></button>
                                     </td>
 
                                 </tr>
@@ -163,10 +198,11 @@
                                     <td>Dilnoza Tosheva</td>
                                     <td><span class="badge success">To'langan</span></td>
                                     <td>2024-02-01</td>
-                                    <td>
-                                        <button class="action-btn edit"><i
-                                                class="fa-solid fa-pen-to-square"></i></button>
-                                        <button class="action-btn delete"><i class="fa-solid fa-trash"></i></button>
+                                    <td class="actions">
+                                        <button class="edit-btn" data-id="${student.id}"><i
+                                                class="fa-solid fa-pen-to-square"></i> </button>
+                                        <button class="delete-btn" data-id="${student.id}"><i
+                                                class="fa-solid fa-trash"></i></button>
                                     </td>
 
                                 </tr>
@@ -194,27 +230,29 @@
                                 <tr>
                                     <td>Ahmed Karimov</td>
                                     <td>+998 93 234 78 90</td>
-                                    <td>Ingliz tili - O'rta</td>
+                                    <td>Og'abek 1-guruh</td>
                                     <td>Dilnoza Tosheva</td>
                                     <td><span class="badge danger">To'lanmagan</span></td>
                                     <td>2024-01-20</td>
-                                    <td>
-                                        <button class="action-btn edit"><i
-                                                class="fa-solid fa-pen-to-square"></i></button>
-                                        <button class="action-btn delete"><i class="fa-solid fa-trash"></i></button>
+                                    <td class="actions">
+                                        <button class="edit-btn" data-id="${student.id}"><i
+                                                class="fa-solid fa-pen-to-square"></i> </button>
+                                        <button class="delete-btn" data-id="${student.id}"><i
+                                                class="fa-solid fa-trash"></i></button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Ahmed Karimov</td>
                                     <td>+998 90 456 90 90</td>
-                                    <td>Ingliz tili - Boshlang'ich</td>
+                                    <td>Ubaydullo 1-guruh</td>
                                     <td>Dilnoza Tosheva</td>
                                     <td><span class="badge danger">To'lanmagan</span></td>
                                     <td>2024-02-10</td>
-                                    <td>
-                                        <button class="action-btn edit"><i
-                                                class="fa-solid fa-pen-to-square"></i></button>
-                                        <button class="action-btn delete"><i class="fa-solid fa-trash"></i></button>
+                                    <td class="actions">
+                                        <button class="edit-btn" data-id="${student.id}"><i
+                                                class="fa-solid fa-pen-to-square"></i> </button>
+                                        <button class="delete-btn" data-id="${student.id}"><i
+                                                class="fa-solid fa-trash"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
