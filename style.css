@@ -245,7 +245,7 @@ thead {
 #modal .modal-actions {
     display: flex;
     justify-content: space-between;
-    margin: 15px;
+    margin: 15px 0;
     text-align: right;
 }
 

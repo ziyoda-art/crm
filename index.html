@@ -288,6 +288,116 @@
                 </tbody>
             </table>
 
+            <!-- Davomat jadvali -->
+            <div id="davomat" class="tables hidden">
+                <div class="attendance-header">
+                    <h2>Davomat ro'yhati</h2>
+                    <div class="attendance-controls">
+                        <input type="date" id="attendanceDate" class="date-picker">
+                        <button class="btn-save" onclick="saveAttendance()">
+                            <i class="fas fa-save"></i> Saqlash
+                        </button>
+                    </div>
+                </div>
+
+                <div class="groups-container">
+                    <div class="group-card" data-group="1">
+                        <div class="group-header">
+                            <h3>Og'abek 1-guruh</h3>
+                            <span class="student-count">15 o'quvchi</span>
+                        </div>
+                        <div class="group-info">
+                            <p><i class="fas fa-clock"></i> Haftaning toq kunlari</p>
+                            <p><i class="fas fa-time"></i> 14:00 - 16:00</p>
+                        </div>
+                        <button class="btn-attendance" onclick="showAttendance('group1')">
+                            <i class="fas fa-clipboard-check"></i> Davomat
+                        </button>
+                    </div>
+
+                    <div class="group-card" data-group="2">
+                        <div class="group-header">
+                            <h3>Og'abek 2-guruh</h3>
+                            <span class="student-count">12 o'quvchi</span>
+                        </div>
+                        <div class="group-info">
+                            <p><i class="fas fa-clock"></i> Haftaning juft kunlari</p>
+                            <p><i class="fas fa-time"></i> 16:00 - 18:00</p>
+                        </div>
+                        <button class="btn-attendance" onclick="showAttendance('group2')">
+                            <i class="fas fa-clipboard-check"></i> Davomat
+                        </button>
+                    </div>
+
+                    <div class="group-card" data-group="3">
+                        <div class="group-header">
+                            <h3>Ubaydullo 1-guruh</h3>
+                            <span class="student-count">18 o'quvchi</span>
+                        </div>
+                        <div class="group-info">
+                            <p><i class="fas fa-clock"></i> Haftaning toq kunlari</p>
+                            <p><i class="fas fa-time"></i> 10:00 - 12:00</p>
+                        </div>
+                        <button class="btn-attendance" onclick="showAttendance('group3')">
+                            <i class="fas fa-clipboard-check"></i> Davomat
+                        </button>
+                    </div>
+
+                    <div class="group-card" data-group="4">
+                        <div class="group-header">
+                            <h3>Amriddin 1-guruh</h3>
+                            <span class="student-count">20 o'quvchi</span>
+                        </div>
+                        <div class="group-info">
+                            <p><i class="fas fa-clock"></i> Haftaning juft kunlari</p>
+                            <p><i class="fas fa-time"></i> 09:00 - 11:00</p>
+                        </div>
+                        <button class="btn-attendance" onclick="showAttendance('group4')">
+                            <i class="fas fa-clipboard-check"></i> Davomat
+                        </button>
+                    </div>
+                </div>
+
+                <div id="attendance-section" class="attendance-section hidden">
+                    <div class="attendance-table-container">
+                        <table class="attendance-table">
+                            <thead>
+                                <tr>
+                                    <th>№</th>
+                                    <th>Ism Familiya</th>
+                                    <th>Telefon</th>
+                                    <th>Keldi</th>
+                                    <th>Kelmadi</th>
+                                    <th>Sababli</th>
+                                    <th>Izoh</th>
+                                </tr>
+                            </thead>
+                            <tbody id="attendanceBody">
+                                <!-- Student attendance rows will be generated here -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="attendance-summary">
+                        <div class="summary-card present">
+                            <i class="fas fa-user-check"></i>
+                            <span class="count" id="presentCount">0</span>
+                            <span class="label">Keldi</span>
+                        </div>
+                        <div class="summary-card absent">
+                            <i class="fas fa-user-times"></i>
+                            <span class="count" id="absentCount">0</span>
+                            <span class="label">Kelmadi</span>
+                        </div>
+                        <div class="summary-card excuse">
+                            <i class="fas fa-user-clock"></i>
+                            <span class="count" id="excuseCount">0</span>
+                            <span class="label">Sababli</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- Modal -->
@@ -321,7 +431,6 @@
                     </div>
                 </form>
             </div>
-        </div>
 
         <div class="top-bar">
             <div>

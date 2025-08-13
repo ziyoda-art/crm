@@ -1,0 +1,180 @@
+/* Davomat tizimi uchun maxsus stillar */
+
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #64748b;
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  --background-color: #f8fafc;
+  --text-color: #1e293b;
+  --border-color: #e2e8f0;
+  --card-background: #ffffff;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.page-title {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.groups-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.group-card {
+  background: var(--card-background);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease;
+}
+
+.group-card:hover {
+  transform: translateY(-4px);
+}
+
+.group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.group-header h3 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.student-count {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.group-info p {
+  margin-bottom: 0.5rem;
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.group-info i {
+  color: var(--primary-color);
+}
+
+.btn-attendance {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-attendance:hover {
+  background: #1d4ed8;
+}
+
+.attendance-section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.attendance-table-container {
+  background: var(--card-background);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 2rem;
+}
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.attendance-table th,
+.attendance-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.attendance-table th {
+  background: var(--primary-color);
+  color: white;
+  font-weight: 600;
+}
+
+.attendance-table tr:hover {
+  background: #f1f5f9;
+}
+
+.status-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.status-btn.selected {
+  background: var(--primary-color);
+  color: white;
+}
+
+.attendance-note {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.attendance-summary {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.summary-card {
+  background: var(--card-background);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: var(--card-shadow);
+}
+
+.summary-card .count {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.summary-card .label {
+  color: var(--secondary-color);
+  font-size: 0.875rem;
+}

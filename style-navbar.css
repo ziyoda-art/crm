@@ -81,7 +81,7 @@
   width: 150px;
   opacity: 1;
   pointer-events: auto;
-  padding: 5px 20px;
+  padding: 6px 30px 6px 10px;
 }
 
 .user-profile {
@@ -248,4 +248,7 @@ body.dark-mode .card span{
 }
 body.dark-mode .head-section button{
   background-color: #2980b9;
+}
+body.dark-mode .student{
+  background-color: #484848;
 }

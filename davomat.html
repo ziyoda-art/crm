@@ -3,76 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Davomat - Yagona IT CRM</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./style-navbar.css">
+    <title>Davomat Tizimi - Yagona IT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="davomat.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="navbar-center">
             <div class="search-container">
-                <button class="icon-btn" title="Search" id="searchBtn">
+                <button class="icon-btn" title="Search">
                     <i class="fas fa-search"></i>
                 </button>
-                <input type="text" id="searchInput" class="search-input" placeholder="Search..." />
+                <input type="text" id="searchInput" class="search-input" placeholder="Qidiruv..." />
             </div>
-            <button class="icon-btn" title="YouTube">
-                <i class="fab fa-youtube"></i>
-            </button>
-            <button class="icon-btn" title="Toggle Dark Mode" id="darkModeToggle">
-                <i class="fas fa-moon"></i>
+            <button class="icon-btn" title="Orqaga" onclick="window.location.href='index.html'">
+                <i class="fas fa-arrow-left"></i>
             </button>
         </div>
         <div class="navbar-left">
             <button class="btn-blaze">
-                Avgust <span class="badge">11-kun</span>
+                Bugun <span class="badge" id="currentDate"></span>
             </button>
-        </div>
-        <div class="navbar-right">
-            <div class="user-profile" onclick="window.location.href='index.html'" style="cursor: pointer;">
-                <i class="fa-solid fa-circle-user"></i>
-                <div class="user-info">
-                    <span class="user-name">Isoqov Og'abek</span>
-                    <span class="user-role">O'qituvchi</span>
-                </div>
-            </div>
         </div>
     </nav>
 
-    
     <div class="container">
-        <div class="top-bar">
-            <div>
-                <label for="datePicker" class="date-label">Sanani tanlang:</label>
-                <input type="date" id="datePicker">
+        <h1 class="page-title">Davomat Tizimi</h1>
+        
+        <!-- Guruh kartalari -->
+        <div class="groups-container">
+            <div class="group-card" data-group="1">
+                <div class="group-header">
+                    <h3>Og'abek 1-guruh</h3>
+                    <span class="student-count">15 o'quvchi</span>
+                </div>
+                <div class="group-info">
+                    <p><i class="fas fa-clock"></i> Haftaning toq kunlari</p>
+                    <p><i class="fas fa-time"></i> 14:00 - 16:00</p>
+                    <p><i class="fas fa-calendar"></i> Dushanba - Juma</p>
+                </div>
+                <button class="btn-attendance" onclick="showAttendance('group1')">
+                    <i class="fas fa-clipboard-check"></i> Davomat
+                </button>
+            </div>
+
+            <div class="group-card" data-group="2">
+                <div class="group-header">
+                    <h3>Og'abek 2-guruh</h3>
+                    <span class="student-count">12 o'quvchi</span>
+                </div>
+                <div class="group-info">
+                    <p><i class="fas fa-clock"></i> Haftaning juft kunlari</p>
+                    <p><i class="fas fa-time"></i> 16:00 - 18:00</p>
+                    <p><i class="fas fa-calendar"></i> Seshanba - Shanba</p>
+                </div>
+                <button class="btn-attendance" onclick="showAttendance('group2')">
+                    <i class="fas fa-clipboard-check"></i> Davomat
+                </button>
+            </div>
+
+            <div class="group-card" data-group="3">
+                <div class="group-header">
+                    <h3>Ubaydullo 1-guruh</h3>
+                    <span class="student-count">18 o'quvchi</span>
+                </div>
+                <div class="group-info">
+                    <p><i class="fas fa-clock"></i> Haftaning toq kunlari</p>
+                    <p><i class="fas fa-time"></i> 10:00 - 12:00</p>
+                    <p><i class="fas fa-calendar"></i> Dushanba - Juma</p>
+                </div>
+                <button class="btn-attendance" onclick="showAttendance('group3')">
+                    <i class="fas fa-clipboard-check"></i> Davomat
+                </button>
+            </div>
+
+            <div class="group-card" data-group="4">
+                <div class="group-header">
+                    <h3>Amriddin 1-guruh</h3>
+                    <span class="student-count">20 o'quvchi</span>
+                </div>
+                <div class="group-info">
+                    <p><i class="fas fa-clock"></i> Haftaning juft kunlari</p>
+                    <p><i class="fas fa-time"></i> 09:00 - 11:00</p>
+                    <p><i class="fas fa-calendar"></i> Seshanba - Shanba</p>
+                </div>
+                <button class="btn-attendance" onclick="showAttendance('group4')">
+                    <i class="fas fa-clipboard-check"></i> Davomat
+                </button>
             </div>
         </div>
 
-        <div id="studentList">
-            <h1 class="table-title">Davomat ro'yxati</h1>
-            <div class="table-box">
-                <h3>Bugungi davomat</h3>
-                <div class="scroll">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Ism Familiya</th>
-                                <th>Guruh</th>
-                                <th>Holati</th>
-                                <th>Sana</th>
-                                <th>Amallar</th>
-                            </tr>
-                        </thead>
-                        <tbody id="davomat-body">
-                            <!-- Davomat ma'lumotlari shu yerga qo'shiladi -->
-                        </tbody>
-                    </table>
+        <!-- Davomat jadvali -->
+        <div id="attendance-section" class="attendance-section hidden">
+            <div class="attendance-header">
+                <h2 id="groupTitle">Guruh davomati</h2>
+                <div class="attendance-controls">
+                    <input type="date" id="attendanceDate" class="date-picker">
+                    <button class="btn-save" onclick="saveAttendance()">
+                        <i class="fas fa-save"></i> Saqlash
+                    </button>
+                    <button class="btn-back" onclick="hideAttendance()">
+                        <i class="fas fa-arrow-left"></i> Orqaga
+                    </button>
+                </div>
+            </div>
+
+            <div class="attendance-table-container">
+                <table class="attendance-table">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Ism Familiya</th>
+                            <th>Telefon</th>
+                            <th>Keldi</th>
+                            <th>Kelmadi</th>
+                            <th>Sababli</th>
+                            <th>Izoh</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendanceBody">
+                        <!-- Student attendance rows will be generated here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="attendance-summary">
+                <div class="summary-card present">
+                    <i class="fas fa-user-check"></i>
+                    <span class="count" id="presentCount">0</span>
+                    <span class="label">Keldi</span>
+                </div>
+                <div class="summary-card absent">
+                    <i class="fas fa-user-times"></i>
+                    <span class="count" id="absentCount">0</span>
+                    <span class="label">Kelmadi</span>
+                </div>
+                <div class="summary-card excuse">
+                    <i class="fas fa-user-clock"></i>
+                    <span class="count" id="excuseCount">0</span>
+                    <span class="label">Sababli</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="./index.js"></script>
+    <script src="davomat.js"></script>
 </body>
 </html>
