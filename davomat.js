@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Hozirgi sanani o'rnatish
-    document.getElementById('currentDate').textContent = new Date().toLocaleDateString('uz-UZ');
+    // document.getElementById('currentDate').textContent = new Date().toLocaleDateString('uz-UZ');
 });
 
 // Davomatni saqlash
@@ -130,24 +130,15 @@ function showAttendance(groupId) {
             <td>${student.phone}</td>
             <td>
                 <label class="radio-container">
-                    <input type="radio" name="attendance_${student.id}" value="present">
+                    <input type="radio" name="attendance_${student.id}" value="present" onchange="updateAttendanceCounts()">
                     <span class="checkmark"></span>
                 </label>
             </td>
             <td>
                 <label class="radio-container">
-                    <input type="radio" name="attendance_${student.id}" value="absent">
+                    <input type="radio" name="attendance_${student.id}" value="absent" onchange="updateAttendanceCounts()">
                     <span class="checkmark"></span>
                 </label>
-            </td>
-            <td>
-                <label class="radio-container">
-                    <input type="radio" name="attendance_${student.id}" value="excuse">
-                    <span class="checkmark"></span>
-                </label>
-            </td>
-            <td>
-                <input type="text" class="note-input" placeholder="Izoh..." data-student="${student.id}">
             </td>
         `;
         tbody.appendChild(row);
@@ -158,6 +149,37 @@ function showAttendance(groupId) {
     
     // Guruh kartalarini yashirish
     document.querySelector('.groups-container').classList.add('hidden');
+    
+    // Initial count update
+    updateAttendanceCounts();
+}
+
+// Davomat sonlarini yangilash
+function updateAttendanceCounts() {
+    if (!currentGroup) return;
+    
+    const group = groups[currentGroup];
+    if (!group) return;
+    
+    let presentCount = 0;
+    let absentCount = 0;
+    
+    // Hisoblash
+    group.students.forEach(student => {
+        const radioPresent = document.querySelector(`input[name="attendance_${student.id}"][value="present"]:checked`);
+        const radioAbsent = document.querySelector(`input[name="attendance_${student.id}"][value="absent"]:checked`);
+        
+        if (radioPresent) {
+            presentCount++;
+        } else if (radioAbsent) {
+            absentCount++;
+        }
+    });
+    
+    // Yangilash
+    document.getElementById('presentCount').textContent = presentCount;
+    document.getElementById('absentCount').textContent = absentCount;
+    document.getElementById('excuseCount').textContent = 0; // Hozircha excuse ni 0 qilib qo'yamiz
 }
 
 // Davomat bo'limini yashirish
@@ -181,4 +203,9 @@ document.getElementById('searchInput')?.addEventListener('input', function(e) {
             card.style.display = 'none';
         }
     });
+});
+// Dark mode toggle
+const darkModeToggle = document.getElementById("darkModeToggle");
+darkModeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
 });
