@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davomat - Yagona IT CRM</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style-navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-center">
+            <div class="search-container">
+                <button class="icon-btn" title="Search" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search..." />
+            </div>
+            <button class="icon-btn" title="YouTube">
+                <i class="fab fa-youtube"></i>
+            </button>
+            <button class="icon-btn" title="Toggle Dark Mode" id="darkModeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+        <div class="navbar-left">
+            <button class="btn-blaze">
+                Avgust <span class="badge">11-kun</span>
+            </button>
+        </div>
+        <div class="navbar-right">
+            <div class="user-profile" onclick="window.location.href='index.html'" style="cursor: pointer;">
+                <i class="fa-solid fa-circle-user"></i>
+                <div class="user-info">
+                    <span class="user-name">Isoqov Og'abek</span>
+                    <span class="user-role">O'qituvchi</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    
+    <div class="container">
+        <div class="top-bar">
+            <div>
+                <label for="datePicker" class="date-label">Sanani tanlang:</label>
+                <input type="date" id="datePicker">
+            </div>
+        </div>
+
+        <div id="studentList">
+            <h1 class="table-title">Davomat ro'yxati</h1>
+            <div class="table-box">
+                <h3>Bugungi davomat</h3>
+                <div class="scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ism Familiya</th>
+                                <th>Guruh</th>
+                                <th>Holati</th>
+                                <th>Sana</th>
+                                <th>Amallar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="davomat-body">
+                            <!-- Davomat ma'lumotlari shu yerga qo'shiladi -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>

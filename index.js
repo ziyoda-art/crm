@@ -483,6 +483,30 @@ darkModeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
 });
 
+// Profile dropdown hover functionality
+const userProfile = document.getElementById('userProfile');
+const profileDropdown = document.getElementById('profileDropdown');
+
+// Ensure dropdown works with hover
+userProfile.addEventListener('mouseenter', () => {
+  profileDropdown.style.opacity = '1';
+  profileDropdown.style.visibility = 'visible';
+  profileDropdown.style.transform = 'translateY(0)';
+});
+
+userProfile.addEventListener('mouseleave', () => {
+  profileDropdown.style.opacity = '0';
+  profileDropdown.style.visibility = 'hidden';
+  profileDropdown.style.transform = 'translateY(-10px)';
+});
+
+// Handle dropdown item clicks
+document.querySelectorAll('.dropdown-item').forEach(item => {
+  item.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+});
+
 // ⏱ Boshlang‘ich yuklash
 loadAttendance(formattedToday);
 renderTable();
