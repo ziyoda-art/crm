@@ -15,13 +15,19 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--background-color);
     height: 100vh;
-    padding-top: 60px; /* Navbar height compensation */
+    padding-top: 60px;
+    /* Navbar height compensation */
 }
 
 .container {
     margin: 0 auto;
     max-width: 1600px;
     padding: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: #64748b;
 }
 
 .head-section {
@@ -90,7 +96,8 @@ body {
     padding: 10px 0;
     font-weight: 700;
 }
-.card i{
+
+.card i {
     display: flex;
     justify-content: center;
     color: #2a9cdb;
@@ -99,6 +106,7 @@ body {
     background-color: #dff0fa;
     /* border: var(--primary-color) 1px solid; */
 }
+
 .card-footer {
     display: flex;
     justify-content: space-between;
@@ -183,6 +191,7 @@ thead {
 .actions {
     display: flex;
 }
+
 .actions button {
     margin-right: 5px;
     padding: 5px 10px;
@@ -388,20 +397,23 @@ input[type="date"] {
 #studentList {
     display: none;
 }
-.title-dashboard{
+
+.title-dashboard {
     width: 100%;
     display: flex;
     max-width: 1600px;
     justify-content: space-between;
     align-items: center;
 }
-#guruh{
+
+#guruh {
     padding: 10px 20px;
     border-radius: 8px;
     background-color: var(--secondary-color);
     border: 1px solid #d6ebff;
 }
-#guruh option{
+
+#guruh option {
     padding: 10px;
     background-color: var(--secondary-color);
     color: var(--primary-color);

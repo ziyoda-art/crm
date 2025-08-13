@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guruhlar - Yagona IT CRM</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./guruhlar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="guruh-container">
+        <div class="guruh-header">
+            <h2>Guruhlar</h2>
+            <button class="create-group-btn" onclick="openNewGroupModal()">
+                <i class="fas fa-plus"></i> Yangi Guruh Yaratish
+            </button>
+        </div>
+
+        <div id="groups-container">
+            <!-- Groups will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <!-- New Group Modal -->
+    <div id="newGroupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('newGroupModal')">&times;</span>
+            <h3>Yangi Guruh Yaratish</h3>
+            <form id="newGroupForm">
+                <label>Guruh Nomi:</label>
+                <input type="text" id="groupName" required>
+
+                <label>Ustozni Tanlang:</label>
+                <select id="groupTeacher" required>
+                    <option value="">Ustoz tanlang...</option>
+                </select>
+
+                <button type="submit">Yaratish</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Student Modal -->
+    <div id="addStudentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addStudentModal')">&times;</span>
+            <h3>O'quvchi Qo'shish</h3>
+            <form id="addStudentForm">
+                <input type="hidden" id="targetGroupId">
+
+                <label>O'quvchini Tanlang:</label>
+                <select id="studentSelect" required>
+                    <option value="">O'quvchi tanlang...</option>
+                </select>
+
+                <button type="submit">Qo'shish</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="guruhlar.js"></script>
+</body>
+
+</html>

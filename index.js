@@ -1,5 +1,5 @@
 const oquvchilarData = [
-+  {
+  +  {
     id: 1,
     ismFamiliya: "Ahmed Karimov",
     telefon: "+998 90 123 45 67",
@@ -243,159 +243,159 @@ function renderTable2() {
 
 // Edit modal functions
 function openEditModal(student) {
-    // Set modal title for edit mode
-    const modalTitle = document.querySelector('.modal-content h3');
-    modalTitle.textContent = "O'quvchini tahrirlash";
-    
-    // Populate form with existing data
-    form.ismFamiliya.value = student.ismFamiliya;
-    form.telefon.value = student.telefon;
-    form.guruh.value = student.guruh;
-    form.oqituvchi.value = student.oqituvchi;
-    form.royxatgaOlingan.value = student.royxatgaOlingan;
-    
-    // Store student ID for edit mode
-    form.dataset.editId = student.id;
-    
-    // Show modal
-    modal.style.display = "flex";
+  // Set modal title for edit mode
+  const modalTitle = document.querySelector('.modal-content h3');
+  modalTitle.textContent = "O'quvchini tahrirlash";
+
+  // Populate form with existing data
+  form.ismFamiliya.value = student.ismFamiliya;
+  form.telefon.value = student.telefon;
+  form.guruh.value = student.guruh;
+  form.oqituvchi.value = student.oqituvchi;
+  form.royxatgaOlingan.value = student.royxatgaOlingan;
+
+  // Store student ID for edit mode
+  form.dataset.editId = student.id;
+
+  // Show modal
+  modal.style.display = "flex";
 }
 
 function openEditModalTeacher(teacher) {
-    // Set modal title for edit mode
-    const modalTitle = document.querySelector('.modal-content h3');
-    modalTitle.textContent = "O'qituvchini tahrirlash";
-    
-    // Populate form with existing data
-    form.ismFamiliya.value = teacher.ismFamiliya;
-    form.telefon.value = teacher.telefon;
-    form.guruh.value = teacher.mutaxassislik;
-    form.oqituvchi.value = teacher.ishBoshlangan;
-    form.royxatgaOlingan.value = teacher.oylikMaosh;
-    
-    // Store teacher ID for edit mode
-    form.dataset.editId = teacher.id;
-    
-    // Show modal
-    modal.style.display = "flex";
+  // Set modal title for edit mode
+  const modalTitle = document.querySelector('.modal-content h3');
+  modalTitle.textContent = "O'qituvchini tahrirlash";
+
+  // Populate form with existing data
+  form.ismFamiliya.value = teacher.ismFamiliya;
+  form.telefon.value = teacher.telefon;
+  form.guruh.value = teacher.mutaxassislik;
+  form.oqituvchi.value = teacher.ishBoshlangan;
+  form.royxatgaOlingan.value = teacher.oylikMaosh;
+
+  // Store teacher ID for edit mode
+  form.dataset.editId = teacher.id;
+
+  // Show modal
+  modal.style.display = "flex";
 }
 
 // Modalni ochish
 addBtn.onclick = () => {
-    // Reset form for add mode
-    form.reset();
-    delete form.dataset.editId;
-    
-    const modalTitle = document.querySelector('.modal-content h3');
-    modalTitle.textContent = "Yangi o'quvchi qo'shish";
-    
-    modal.style.display = "flex";
+  // Reset form for add mode
+  form.reset();
+  delete form.dataset.editId;
+
+  const modalTitle = document.querySelector('.modal-content h3');
+  modalTitle.textContent = "Yangi o'quvchi qo'shish";
+
+  modal.style.display = "flex";
 };
 
 addBtn2.onclick = () => {
-    // Reset form for add mode
-    form.reset();
-    delete form.dataset.editId;
-    
-    const modalTitle = document.querySelector('.modal-content h3');
-    modalTitle.textContent = "Yangi o'qituvchi qo'shish";
-    
-    modal.style.display = "flex";
+  // Reset form for add mode
+  form.reset();
+  delete form.dataset.editId;
+
+  const modalTitle = document.querySelector('.modal-content h3');
+  modalTitle.textContent = "Yangi o'qituvchi qo'shish";
+
+  modal.style.display = "flex";
 };
 
 // Modalni yopish
 cancelBtn.onclick = () => {
-    modal.style.display = "none";
-    form.reset();
-    delete form.dataset.editId;
+  modal.style.display = "none";
+  form.reset();
+  delete form.dataset.editId;
 };
 
 cancelbutton.onclick = () => {
-    modal.style.display = "none";
-    form.reset();
-    delete form.dataset.editId;
+  modal.style.display = "none";
+  form.reset();
+  delete form.dataset.editId;
 };
 
 // Formani yuborish
 form.onsubmit = (e) => {
-    e.preventDefault();
-    
-    const ismFamiliya = form.ismFamiliya.value.trim();
-    const telefon = form.telefon.value.trim();
-    const guruh = form.guruh.value.trim();
-    const oqituvchi = form.oqituvchi.value.trim();
-    const royxatgaOlingan = form.royxatgaOlingan.value;
-    
-    // Validation
-    const phoneRegex = /^\+998 \d{2} \d{3} \d{2} \d{2}$/;
-    if (!phoneRegex.test(telefon)) {
-        alert("Telefon format xato. Masalan: +998 90 123 45 67");
-        return;
+  e.preventDefault();
+
+  const ismFamiliya = form.ismFamiliya.value.trim();
+  const telefon = form.telefon.value.trim();
+  const guruh = form.guruh.value.trim();
+  const oqituvchi = form.oqituvchi.value.trim();
+  const royxatgaOlingan = form.royxatgaOlingan.value;
+
+  // Validation
+  const phoneRegex = /^\+998 \d{2} \d{3} \d{2} \d{2}$/;
+  if (!phoneRegex.test(telefon)) {
+    alert("Telefon format xato. Masalan: +998 90 123 45 67");
+    return;
+  }
+
+  const editId = form.dataset.editId;
+
+  if (currentTab === "oquvchilar") {
+    if (editId) {
+      // Edit existing student
+      const index = students.findIndex(s => s.id === parseInt(editId));
+      if (index !== -1) {
+        students[index] = {
+          ...students[index],
+          ismFamiliya,
+          telefon,
+          guruh,
+          oqituvchi,
+          royxatgaOlingan
+        };
+      }
+    } else {
+      // Add new student
+      const newId = students.length > 0 ? Math.max(...students.map(s => s.id)) + 1 : 1;
+      const newStudent = {
+        id: newId,
+        ismFamiliya,
+        telefon,
+        guruh,
+        oqituvchi,
+        royxatgaOlingan
+      };
+      students.push(newStudent);
     }
-    
-    const editId = form.dataset.editId;
-    
-    if (currentTab === "oquvchilar") {
-        if (editId) {
-            // Edit existing student
-            const index = students.findIndex(s => s.id === parseInt(editId));
-            if (index !== -1) {
-                students[index] = {
-                    ...students[index],
-                    ismFamiliya,
-                    telefon,
-                    guruh,
-                    oqituvchi,
-                    royxatgaOlingan
-                };
-            }
-        } else {
-            // Add new student
-            const newId = students.length > 0 ? Math.max(...students.map(s => s.id)) + 1 : 1;
-            const newStudent = {
-                id: newId,
-                ismFamiliya,
-                telefon,
-                guruh,
-                oqituvchi,
-                royxatgaOlingan
-            };
-            students.push(newStudent);
-        }
-        renderTable();
-    } else if (currentTab === "oqituvchilar") {
-        if (editId) {
-            // Edit existing teacher
-            const index = teachers.findIndex(t => t.id === parseInt(editId));
-            if (index !== -1) {
-                teachers[index] = {
-                    ...teachers[index],
-                    ismFamiliya,
-                    telefon: telefon,
-                    mutaxassislik: guruh,
-                    ishBoshlangan: oqituvchi,
-                    oylikMaosh: royxatgaOlingan
-                };
-            }
-        } else {
-            // Add new teacher
-            const newId = teachers.length > 0 ? Math.max(...teachers.map(t => t.id)) + 1 : 1;
-            const newTeacher = {
-                id: newId,
-                ismFamiliya,
-                telefon,
-                mutaxassislik: guruh,
-                ishBoshlangan: oqituvchi,
-                oylikMaosh: royxatgaOlingan
-            };
-            teachers.push(newTeacher);
-        }
-        renderTable2();
+    renderTable();
+  } else if (currentTab === "oqituvchilar") {
+    if (editId) {
+      // Edit existing teacher
+      const index = teachers.findIndex(t => t.id === parseInt(editId));
+      if (index !== -1) {
+        teachers[index] = {
+          ...teachers[index],
+          ismFamiliya,
+          telefon: telefon,
+          mutaxassislik: guruh,
+          ishBoshlangan: oqituvchi,
+          oylikMaosh: royxatgaOlingan
+        };
+      }
+    } else {
+      // Add new teacher
+      const newId = teachers.length > 0 ? Math.max(...teachers.map(t => t.id)) + 1 : 1;
+      const newTeacher = {
+        id: newId,
+        ismFamiliya,
+        telefon,
+        mutaxassislik: guruh,
+        ishBoshlangan: oqituvchi,
+        oylikMaosh: royxatgaOlingan
+      };
+      teachers.push(newTeacher);
     }
-    
-    modal.style.display = "none";
-    form.reset();
-    delete form.dataset.editId;
+    renderTable2();
+  }
+
+  modal.style.display = "none";
+  form.reset();
+  delete form.dataset.editId;
 };
 
 function toggleTables() {
@@ -514,5 +514,5 @@ renderTable2();
 
 // Admin profile navigation function
 function navigateToSettings() {
-    window.location.href = 'settings.html';
+  window.location.href = 'settings.html';
 }

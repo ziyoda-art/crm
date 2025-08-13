@@ -11,6 +11,7 @@
   --card-background: #ffffff;
   --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -27,7 +28,9 @@
   z-index: 1000;
 }
 
-.navbar-left, .navbar-center, .navbar-right {
+.navbar-left,
+.navbar-center,
+.navbar-right {
   display: flex;
   align-items: center;
 }
@@ -105,7 +108,8 @@
   border-radius: 50%;
   margin-right: 8px;
 }
-.fa-circle-user{
+
+.fa-circle-user {
   font-size: 30px;
 }
 
@@ -133,7 +137,7 @@
   background: white;
   border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 1000;
   min-width: 180px;
   opacity: 0;
@@ -148,11 +152,13 @@
   visibility: visible;
   transform: translateY(0);
 }
-.logo-text{
+
+.logo-text {
   font-size: 30px;
   font-weight: bold;
 }
-.home a{
+
+.home a {
   text-decoration: none;
 }
 
@@ -164,7 +170,7 @@ body {
 
 .page-title {
   text-align: center;
-  margin: 5rem 0 0 0 ;
+  margin: 5rem 0 0 0;
   font-size: 2.5rem;
   color: var(--primary-color);
   font-weight: 700;
@@ -236,16 +242,19 @@ body {
   transition: background-color 0.3s ease;
   margin-top: 20px;
 }
-.attendance-controls{
+
+.attendance-controls {
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
 }
-.attendance-controls input{
+
+.attendance-controls input {
   padding: 5px 20px;
   border-radius: 5px;
   border: 1px solid var(--border-color);
 }
+
 .attendance-section {
   padding: 2rem;
   max-width: 1200px;
@@ -328,7 +337,8 @@ body {
   color: var(--secondary-color);
   font-size: 0.875rem;
 }
-.btn-save{
+
+.btn-save {
   font-weight: 700;
   background: #3498db;
   color: white;
@@ -338,6 +348,7 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 /* Dark mode styles for dropdown */
 body.dark-mode .profile-dropdown {
   background-color: #2c2c2c;
@@ -385,60 +396,81 @@ body.dark-mode .icon-btn:hover {
 body.dark-mode .user-info {
   color: #ccc;
 }
-body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark p {
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark p {
   color: white;
 }
+
 body.dark-mode .tabs {
   background-color: #1e1e1e;
 }
-body.dark-mode .tab-btn{
+
+body.dark-mode .tab-btn {
   background-color: #1e1e1e;
   color: white;
 }
-body.dark-mode .tab-btn:active{
+
+body.dark-mode .tab-btn:active {
   background-color: #b4adad;
   color: white;
 }
-body.dark-mode .search-input{
+
+body.dark-mode .search-input {
   background-color: #333;
   color: white;
 }
-body.dark-mode tr{
+
+body.dark-mode tr {
   background-color: #1e1e1e;
   border-color: #484848;
 }
-body.dark-mode th{
+
+body.dark-mode th {
   background-color: #484848;
 }
-body.dark-mode .card{
+
+body.dark-mode .card {
   background-color: #484848;
 }
-body.dark-mode .card h6{
+
+body.dark-mode .card h6 {
   color: white;
 }
-body.dark-mode .card span{
+
+body.dark-mode .card span {
   color: white;
 }
-body.dark-mode .head-section button{
+
+body.dark-mode .head-section button {
   background-color: #2980b9;
 }
-body.dark-mode .student{
+
+body.dark-mode .student {
   background-color: #484848;
 }
-body.dark-mode .group-card{
+
+body.dark-mode .group-card {
   background: #2c2c2c;
   color: #e0e0e0;
   border: 1px solid #444;
 }
-body.dark-mode .logo-text{
+
+body.dark-mode .logo-text {
   color: #e0e0e0;
 }
-body.dark-mode .btn-attendance{
-  background-color:#1e1e1e ;
+
+body.dark-mode .btn-attendance {
+  background-color: #1e1e1e;
 }
-body.dark-mode .group-info i{
+
+body.dark-mode .group-info i {
   color: #bbbbbb;
 }
-body.dark-mode tr:hover{
+
+body.dark-mode tr:hover {
   background: #333;
 }

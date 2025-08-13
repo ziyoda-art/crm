@@ -86,12 +86,12 @@ let currentGroup = null;
 let currentDate = new Date().toISOString().split('T')[0];
 
 // Sahifa yuklanganda ishga tushadigan funksiyalar
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // LocalStorage ni tekshirish va bo'sh bo'lsa boshlang'ich ma'lumot yozish
     if (!localStorage.getItem('attendance')) {
         localStorage.setItem('attendance', JSON.stringify({}));
     }
-    
+
     // Hozirgi sanani o'rnatish
     // document.getElementById('currentDate').textContent = new Date().toLocaleDateString('uz-UZ');
 });
@@ -105,22 +105,22 @@ function saveAttendance() {
 function showAttendance(groupId) {
     currentGroup = groupId;
     const group = groups[groupId];
-    
+
     if (!group) {
         console.error('Guruh topilmadi:', groupId);
         return;
     }
-    
+
     // Guruh nomini yangilash
     document.getElementById('groupTitle').textContent = group.name + ' davomati';
-    
+
     // Hozirgi sanani o'rnatish
     document.getElementById('attendanceDate').value = currentDate;
-    
+
     // Jadvalni tozalash
     const tbody = document.getElementById('attendanceBody');
     tbody.innerHTML = '';
-    
+
     // Studentlarni jadvalga qo'shish
     group.students.forEach(student => {
         const row = document.createElement('tr');
@@ -143,13 +143,13 @@ function showAttendance(groupId) {
         `;
         tbody.appendChild(row);
     });
-    
+
     // Davomat bo'limini ko'rsatish
     document.getElementById('attendance-section').classList.remove('hidden');
-    
+
     // Guruh kartalarini yashirish
     document.querySelector('.groups-container').classList.add('hidden');
-    
+
     // Initial count update
     updateAttendanceCounts();
 }
@@ -157,25 +157,25 @@ function showAttendance(groupId) {
 // Davomat sonlarini yangilash
 function updateAttendanceCounts() {
     if (!currentGroup) return;
-    
+
     const group = groups[currentGroup];
     if (!group) return;
-    
+
     let presentCount = 0;
     let absentCount = 0;
-    
+
     // Hisoblash
     group.students.forEach(student => {
         const radioPresent = document.querySelector(`input[name="attendance_${student.id}"][value="present"]:checked`);
         const radioAbsent = document.querySelector(`input[name="attendance_${student.id}"][value="absent"]:checked`);
-        
+
         if (radioPresent) {
             presentCount++;
         } else if (radioAbsent) {
             absentCount++;
         }
     });
-    
+
     // Yangilash
     document.getElementById('presentCount').textContent = presentCount;
     document.getElementById('absentCount').textContent = absentCount;
@@ -189,14 +189,14 @@ function hideAttendance() {
 }
 
 // Qidiruv funksiyasi
-document.getElementById('searchInput')?.addEventListener('input', function(e) {
+document.getElementById('searchInput')?.addEventListener('input', function (e) {
     const searchTerm = e.target.value.toLowerCase();
     const groupCards = document.querySelectorAll('.group-card');
-    
+
     groupCards.forEach(card => {
         const groupName = card.querySelector('h3').textContent.toLowerCase();
         const studentCount = card.querySelector('.student-count').textContent.toLowerCase();
-        
+
         if (groupName.includes(searchTerm) || studentCount.includes(searchTerm)) {
             card.style.display = 'block';
         } else {
@@ -207,5 +207,5 @@ document.getElementById('searchInput')?.addEventListener('input', function(e) {
 // Dark mode toggle
 const darkModeToggle = document.getElementById("darkModeToggle");
 darkModeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle("dark-mode");
 });
