@@ -83,7 +83,7 @@ function createGroupTable(group) {
 // Render students for a group
 function renderGroupStudents(students) {
     if (students.length === 0) {
-        return '<tr><td colspan="4" class="no-students">Bu guruhda hozircha o\'quvchilar mavjud emas</td></tr>';
+        return '<tr><td colspan="4" class="no-students">Guruhga oquvchi kiritilmagan</td></tr>';
     }
 
     return students.map((student, index) => `
@@ -215,3 +215,8 @@ window.onclick = function (event) {
         }
     }
 }
+// Dark mode toggle
+const darkModeToggle = document.getElementById("darkModeToggle");
+darkModeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+});

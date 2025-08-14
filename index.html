@@ -32,16 +32,23 @@
             </button> -->
         </div>
         <div class="navbar-left">
-            <button class="btn-blaze">
-                Avgust <span class="badge">11-kun</span>
+            <button class="btn-blaze" id="dateButton">
+                <script>
+                    // Uzbek month names
+                    const months = ["Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun", "Iyul", "Avgust", "Sentabr", "Oktabr", "Noyabr", "Dekabr"];
+                    const now = new Date();
+                    const month = months[now.getMonth()];
+                    const day = now.getDate();
+                    document.write(`${month} <span class="badge">${day}-kun</span>`);
+                </script>
             </button>
         </div>
         <div class="navbar-right">
             <div class="user-profile" id="userProfile">
                 <i class="fa-solid fa-circle-user"></i>
                 <div class="user-info">
-                    <span class="user-name">Isoqov Og'abek</span>
-                    <span class="user-role">O'qituvchi</span>
+                    <span class="user-name">T . Ziyodabonu</span>
+                    <span class="user-role">Admin</span>
                 </div>
                 <div class="profile-dropdown" id="profileDropdown">
                     <a href="davomat.html" class="dropdown-item">
@@ -136,7 +143,7 @@
             <button class="tab-btn active" data-tab="oquvchilar">O'quvchilar</button>
             <button class="tab-btn" data-tab="tolovlar" onclick="toggleTables()">To'lovlar</button>
             <button class="tab-btn" data-tab="oqituvchilar">Ustozlar</button>
-            <button class="tab-btn" data-tab="guruh"> <a href="./guruhlar.html">Guruhlar</a></button>
+            <button class="tab-btn"><a href="./guruhlar.html">Guruhlar</a></button>
         </div>
 
         <div id="content">
@@ -169,107 +176,119 @@
             </table>
 
             <!-- To'lovlar jadvali -->
-            <div id="tolovlar" class="tables hidden">
-                <div class="table-box green">
-                    <h3>To'lov Qilganlar</h3>
-                    <div class="scroll">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Ism Familiya</th>
-                                    <th>Sana</th>
-                                    <th>Guruh</th>
-                                    <th>O'qituvchi</th>
-                                    <th>To'lov</th>
-                                    <th>Olingan sana</th>
-                                    <th>Amallar</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Ahmed Karimov</td>
-                                    <td>+998 90 123 45 67</td>
-                                    <td>Og'abek 1-guruh</td>
-                                    <td>Dilnoza Tosheva</td>
-                                    <td><span class="badge success">To'langan</span></td>
-                                    <td>2024-01-15</td>
-                                    <td class="actions">
-                                        <button class="edit-btn" data-id="${student.id}"><i
-                                                class="fa-solid fa-pen-to-square"></i> </button>
-                                        <button class="delete-btn" data-id="${student.id}"><i
-                                                class="fa-solid fa-trash"></i></button>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>Bobur Rahmonov</td>
-                                    <td>+998 93 345 67 89</td>
-                                    <td>Og'abek 3-guruh</td>
-                                    <td>Dilnoza Tosheva</td>
-                                    <td><span class="badge success">To'langan</span></td>
-                                    <td>2024-02-01</td>
-                                    <td class="actions">
-                                        <button class="edit-btn" data-id="${student.id}"><i
-                                                class="fa-solid fa-pen-to-square"></i> </button>
-                                        <button class="delete-btn" data-id="${student.id}"><i
-                                                class="fa-solid fa-trash"></i></button>
-                                    </td>
-
-                                </tr>
-                            </tbody>
-                        </table>
+            <section id="payment-dashboard">
+                <div class="payment-header">
+                    <h1 class="dashboard-title">To'lovlar boshqaruv paneli</h1>
+                    <div class="payment-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-users"></i>
+                            <div class="stat-info">
+                                <span class="stat-number" id="totalStudents">200</span>
+                                <span class="stat-label">Jami o'quvchilar</span>
+                            </div>
+                        </div>
+                        <div class="stat-card paid">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="stat-info">
+                                <span class="stat-number" id="paidStudents">142</span>
+                                <span class="stat-label">To'lov qilganlar</span>
+                            </div>
+                        </div>
+                        <div class="stat-card unpaid">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <div class="stat-info">
+                                <span class="stat-number" id="unpaidStudents">58</span>
+                                <span class="stat-label">To'lov qilmaganlar</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="table-box red">
-                    <h3>To'lov Qilmaganlar</h3>
-                    <div class="scroll">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Ism Familiya</th>
-                                    <th>Sana</th>
-                                    <th>Guruh</th>
-                                    <th>O'qituvchi</th>
-                                    <th>To'lov</th>
-                                    <th>Olingan sana</th>
-                                    <th>Amallar</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Ahmed Karimov</td>
-                                    <td>+998 93 234 78 90</td>
-                                    <td>Og'abek 1-guruh</td>
-                                    <td>Dilnoza Tosheva</td>
-                                    <td><span class="badge danger">To'lanmagan</span></td>
-                                    <td>2024-01-20</td>
-                                    <td class="actions">
-                                        <button class="edit-btn" data-id="${student.id}"><i
-                                                class="fa-solid fa-pen-to-square"></i> </button>
-                                        <button class="delete-btn" data-id="${student.id}"><i
-                                                class="fa-solid fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Ahmed Karimov</td>
-                                    <td>+998 90 456 90 90</td>
-                                    <td>Ubaydullo 1-guruh</td>
-                                    <td>Dilnoza Tosheva</td>
-                                    <td><span class="badge danger">To'lanmagan</span></td>
-                                    <td>2024-02-10</td>
-                                    <td class="actions">
-                                        <button class="edit-btn" data-id="${student.id}"><i
-                                                class="fa-solid fa-pen-to-square"></i> </button>
-                                        <button class="delete-btn" data-id="${student.id}"><i
-                                                class="fa-solid fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+    
+                <div class="payment-controls">
+                    <div class="search-filter">
+                        <input type="text" id="searchInput" placeholder="Ism bo'yicha qidirish..." class="search-input">
+                        <select id="groupFilter" class="filter-select">
+                            <option value="">Barcha guruhlar</option>
+                            <option value="Og'abek 1-guruh">Og'abek 1-guruh</option>
+                            <option value="Og'abek 2-guruh">Og'abek 2-guruh</option>
+                            <option value="Ubaydullo 1-guruh">Ubaydullo 1-guruh</option>
+                            <option value="Amriddin 1-guruh">Amriddin 1-guruh</option>
+                        </select>
+                        <select id="statusFilter" class="filter-select">
+                            <option value="">2025</option>
+                            <option value="avgust">Avgust</option>
+                            <option value="sentabr">Sentabr</option>
+                            <option value="Okatabr">Oktabr</option>
+                            <option value="Okatabr">Noyabr</option>
+                            <option value="Okatabr">Dekabr</option>
+                            <option value="Okatabr">Yanvar</option>
+                            <option value="Okatabr">Fevral</option>
+                            <option value="Okatabr">Mart</option>
+                            <option value="Okatabr">Aprel</option>
+                            <option value="Okatabr">May</option>
+                            <option value="Okatabr">Iyun</option>
+                            <option value="Okatabr">Iyul</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary" id="addPaymentBtn">
+                        <i class="fas fa-plus"></i> Yangi to'lov qo'shish
+                    </button>
+                </div>
+    
+                <div class="payment-tables-container">
+                    <div class="table-section paid-section">
+                        <div class="section-header">
+                            <h2><i class="fas fa-check-circle"></i> To'lov Qilganlar</h2>
+                            <span class="count-badge" id="paidCount">142</span>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="payment-table paid-table">
+                                <thead>
+                                    <tr>
+                                        <th>Ism Familiya</th>
+                                        <th>Telefon</th>
+                                        <th>Guruh</th>
+                                        <th>O'qituvchi</th>
+                                        <th>To'lov miqdori</th>
+                                        <th>To'langan sana</th>
+                                        <th>Holati</th>
+                                        <th>Amallar</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="paidTableBody">
+                                    <!-- Dynamic content will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+    
+                    <div class="table-section unpaid-section">
+                        <div class="section-header">
+                            <h2><i class="fas fa-exclamation-circle"></i> To'lov Qilmaganlar</h2>
+                            <span class="count-badge" id="unpaidCount">58</span>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="payment-table unpaid-table">
+                                <thead>
+                                    <tr>
+                                        <th>Ism Familiya</th>
+                                        <th>Telefon</th>
+                                        <th>Guruh</th>
+                                        <th>O'qituvchi</th>
+                                        <th>To'lov miqdori</th>
+                                        <th>Muddati</th>
+                                        <th>Holati</th>
+                                        <th>Amallar</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="unpaidTableBody">
+                                    <!-- Dynamic content will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
             <!-- O'qituvchilar jadvali -->
             <table id="oqituvchilar" style="display:none;">
                 <thead>

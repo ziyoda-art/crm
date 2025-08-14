@@ -44,6 +44,7 @@
   border-radius: 4px;
   cursor: pointer;
   position: relative;
+  margin: 0 20px ;
 }
 
 .btn-blaze .badge {
@@ -154,8 +155,9 @@
 }
 
 .logo-text {
+  color: var(--primary-color);
   font-size: 30px;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .home a {
@@ -473,4 +475,15 @@ body.dark-mode .group-info i {
 
 body.dark-mode tr:hover {
   background: #333;
+}
+body.dark-mode .guruh-header {
+  background: #121212;
+  color: #e0e0e0;
+}
+body.dark-mode .add-student-btn {
+  background-color: #484c56;
+}
+body.dark-mode .modal-content{
+  background-color: #121212;
+  color: white;
 }
