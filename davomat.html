@@ -39,7 +39,14 @@
             </button>
             <div class="navbar-left">
                 <button class="btn-blaze">
-                    Avgust <span class="badge">11-kun</span>
+                    <script>
+                        // Uzbek month names
+                        const months = ["Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun", "Iyul", "Avgust", "Sentabr", "Oktabr", "Noyabr", "Dekabr"];
+                        const now = new Date();
+                        const month = months[now.getMonth()];
+                        const day = now.getDate();
+                        document.write(`${month} <span class="badge">${day}-kun</span>`);
+                    </script>
                 </button>
             </div>
             <div class="user-profile" onclick="navigateToSettings()" style="cursor: pointer;">
