@@ -90,6 +90,25 @@
                     <option value="">Ustoz tanlang...</option>
                 </select>
 
+                <label>Kunligi Tartibi:</label>
+                <select id="groupScheduleType" required>
+                    <option value="">Tanlang...</option>
+                    <option value="toq">Toq kunlar (1,3,5)</option>
+                    <option value="juft">Juft kunlar (2,4,6)</option>
+                </select>
+
+                <label>Dars Vaqti:</label>
+                <select id="groupTimeSlot" required>
+                    <option value="">Vaqtni tanlang...</option>
+                    <option value="09:00-11:00">09:00 dan 11:00 gacha</option>
+                    <option value="11:30-13:30">11:30 dan 13:30 gacha</option>
+                    <option value="14:00-16:00">14:00 dan 16:00 gacha</option>
+                    <option value="16:30-18:30">16:30 dan 18:30 gacha</option>
+                </select>
+
+                <label>Narx (so'm):</label>
+                <input type="number" id="groupPrice" placeholder="Masalan: 500000" required>
+
                 <button type="submit">Yaratish</button>
             </form>
         </div>
@@ -104,9 +123,9 @@
                 <input type="hidden" id="targetGroupId">
 
                 <label>O'quvchini Tanlang:</label>
-                <select id="studentSelect" required>
-                    <option value="">O'quvchi tanlang...</option>
-                </select>
+                <input type="text" id="studentSearch" placeholder="O'quvchini qidiring..." oninput="filterStudents()"
+                    required>
+                <div id="studentResults" class="dropdown-results"></div>
 
                 <button type="submit">Qo'shish</button>
             </form>
